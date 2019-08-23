@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 import "./App.css";
 import Numbers from "./components/ButtonComponents/NumberButtons/Numbers";
 import Operators from "./components/ButtonComponents/OperatorButtons/Operators";
@@ -6,7 +7,47 @@ import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 import Logo from "./components/DisplayComponents/Logo";
 import Display from "./components/DisplayComponents/Display";
 
+const GlobalStyle = createGlobalStyle`
+body {
+  background-color: ${props =>
+    props.theme.mode === 'dark' ? '#111' : '#EEE'};
+  color: ${props =>
+    props.theme.mode === 'dark' ? '#EEE' : '#111'};
+}
+
+.back-container {
+  background-color: ${props =>
+    props.theme.mode === 'dark' ? '#111' : '#131a1a'};
+  color: ${props =>
+    props.theme.mode === 'dark' ? '#EEE' : '#111'};
+  border-color: ${props =>
+    props.theme.mode === 'dark' ? '#EEE' : '#131a1a'};
+}
+
+.main-container {
+  background-color: ${props =>
+    props.theme.mode === 'dark' ? '#111' : 'darkred'};
+  color: ${props =>
+    props.theme.mode === 'dark' ? '#EEE' : '#111'};
+  border-color: ${props =>
+    props.theme.mode === 'dark' ? '#EEE' : 'gray'};
+}
+
+.display {
+  background-color: ${props =>
+    props.theme.mode === 'dark' ? '#111' : '#131a1a'};
+  color: ${props =>
+    props.theme.mode === 'dark' ? '#EEE' : '#111'};
+}
+
+.displayDigit {
+  color: ${props =>
+    props.theme.mode === 'dark' ? 'red' : '#EEE'};
+}`;
+
 function App() {
+
+  const [theme, setTheme] = useState({ mode: 'light' });
 
   const [display, setDisplay] = useState('');
 
@@ -34,21 +75,11 @@ function App() {
     return setDisplay(eval(display));
   }
 
-  // Require and style the background image
-  const handsImg = require('../src/Img/colorfulhands.jpg');
-  const backgroundStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    height: '100vh',
-    backgroundImage: `url(${handsImg})`,
-    backgroundSize: 'cover',
-    margin: '0 auto',
-  };
-
   return (
-    <div className="background-image" style={ backgroundStyle }>
+    <ThemeProvider theme={theme}>
+      <>
+      <GlobalStyle />
+      <button className='nightBtn' onClick={() => setTheme(theme.mode === 'dark' ? {mode: 'light'} : {mode: 'dark'})}>Knight Mode</button>
       <div className="back-container">
         <div className="main-container">
           <Logo />
@@ -64,7 +95,8 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
+    </>
+    </ThemeProvider>
   );
 }
 
