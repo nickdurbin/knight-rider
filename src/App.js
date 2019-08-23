@@ -10,11 +10,12 @@ function App() {
 
   const [display, setDisplay] = useState('');
 
-  const handleClick = (symbol) => {
+  function handleClick(symbol) {
     return setDisplay(display + symbol);
   }
 
-  const handleSpecialButton = (symbol) => {
+  console.log(handleClick);
+  function handleSpecialButton(symbol) {
     if (symbol === 'C') {
       setDisplay('');
     } else if (symbol === '%') {
@@ -24,12 +25,14 @@ function App() {
     }
   }
 
-  const handleOperator = (symbol, value) => {
-    if (symbol === '+' || '-' || 'x' || '/' ) return setDisplay(display + value);
+  function handleOperator(symbol, value) {
+    if (symbol === '+' || '-' || 'x' || '/' ) 
+    return setDisplay(display + value);
   }
 
-  const handleCalculation = (value) => {
-    if (value === '=') return setDisplay(eval(display));
+  function handleCalculation(value) {
+    if (value === '=') 
+    return setDisplay(eval(display));
   }
 
   // Require and style the background image

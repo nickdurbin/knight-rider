@@ -5,7 +5,7 @@ const NumberButton = (props) => {
 
   return (
     <div className={ buttonValue } onClick={() => 
-    props.handleClick(props)}>
+    props.handleClick(props.symbol)}>
       { props.symbol }
     </div>
   );
