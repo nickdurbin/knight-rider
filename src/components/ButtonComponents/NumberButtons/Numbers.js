@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { numbers } from "../../../data";
 import NumberButton from "../NumberButtons/NumberButton";
 
-const Numbers = ({ setDisplay, display }) => {
+const Numbers = () => {
 
   const [setNumbers] = useState(numbers);
 
@@ -11,10 +11,9 @@ const Numbers = ({ setDisplay, display }) => {
       { setNumbers.map((num, index) => { 
         return index !== 9 
         ?
-        <NumberButton key={ index } symbol={ num } setDisplay={ setDisplay } display={ display } /> 
+        <NumberButton key={ index } symbol={ num } /> 
         : 
-        <NumberButton key={ index } symbol={ num } name='zero-button' 
-        setDisplay={ setDisplay } display={ display } /> 
+        <NumberButton key={ index } symbol={ num } name='zero-button' /> 
       })}
     </div>
   );

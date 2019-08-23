@@ -1,17 +1,11 @@
 import React from "react";
 
-const OperatorButton = ({ setDisplay, value, symbol, display }) => {
-
-  function handleOperator() {
-    if (symbol === '+' || '-' || 'x' || '/' ) return setDisplay(display + value);
-  }
-
-  function handleCalculation() {
-    if (value === '=') return setDisplay(eval(display));
-  }
+const OperatorButton = (props) => {
 
   return (
-    <div className="operator-button" value={value} onClick={() => handleOperator() || handleCalculation()}>{ symbol }</div>
+    <div className="operator-button" value={props.value} onClick={() => props.handleOperator() || props.handleCalculation()}>
+      { props.symbol }
+    </div>
   );
 };
 

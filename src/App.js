@@ -10,6 +10,28 @@ function App() {
 
   const [display, setDisplay] = useState('');
 
+  const handleClick = (props) => {
+    return props.setDisplay(props.display + props.symbol);
+  }
+
+  const handleSpecialButton = (props) => {
+    if (props.symbol === 'C') {
+      props.setDisplay('');
+    } else if (props.symbol === '%') {
+      props.setDisplay(props.display / 100);
+    } else if (props.symbol === '+/-'){
+      props.setDisplay(props.display * -1);
+    }
+  }
+
+  const handleOperator = (props) => {
+    if (props.symbol === '+' || '-' || 'x' || '/' ) return props.setDisplay(props.display + props.value);
+  }
+
+  const handleCalculation = (props) => {
+    if (props.value === '=') return setDisplay(eval(props.display));
+  }
+
   // Require and style the background image
   const handsImg = require('../src/Img/colorfulhands.jpg');
   const backgroundStyle = {
@@ -24,18 +46,18 @@ function App() {
   };
 
   return (
-    <div className="background-image" style={ backgroundStyle}>
+    <div className="background-image" style={ backgroundStyle }>
       <div className="back-container">
         <div className="main-container">
           <Logo />
           <Display total={display}/>
           <div className='buttons-container'>
             <div className="special-number">
-              <Specials setDisplay={setDisplay} display={display}/>
-              <Numbers setDisplay={setDisplay} display={display}/>
+              <Specials handleSpecialButton={handleSpecialButton} />
+              <Numbers handleClick={handleClick} />
             </div>
             <div className="operators">
-              <Operators setDisplay={setDisplay} display={display}/>
+              <Operators handleCalculation={handleCalculation} handleOperator={handleOperator}/>
             </div>
           </div>
         </div>
