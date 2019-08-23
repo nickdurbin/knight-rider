@@ -61,14 +61,14 @@ body {
 
 .operator-button {
   background-color: ${props =>
-    props.theme.mode === 'dark' ? '#111' : '#3195f3'};
+    props.theme.mode === 'dark' ? 'white' : '#3195f3'};
   color: ${props =>
     props.theme.mode === 'dark' ? 'red' : 'white'};
 }
 
 .zero-button {
   background-color: ${props =>
-    props.theme.mode === 'dark' ? '#111' : '#1111b1'};
+    props.theme.mode === 'dark' ? 'white' : '#1111b1'};
   color: ${props =>
     props.theme.mode === 'dark' ? 'red' : 'white'};
 }`;
