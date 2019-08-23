@@ -14,7 +14,6 @@ function App() {
     return setDisplay(display + symbol);
   }
 
-  console.log(handleClick);
   function handleSpecialButton(symbol) {
     if (symbol === 'C') {
       setDisplay('');

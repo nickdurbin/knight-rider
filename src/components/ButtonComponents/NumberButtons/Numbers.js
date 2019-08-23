@@ -11,7 +11,7 @@ const Numbers = (props) => {
       { setNumbers.map((num, index) => { 
         return index !== 9 
         ?
-        <NumberButton key={ index } symbol={ num } {...props}/> 
+        <NumberButton key={ index } symbol={ num } {...props} /> 
         : 
         <NumberButton key={ index } symbol={ num } name='zero-button' {...props} /> 
       })}
