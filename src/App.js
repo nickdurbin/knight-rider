@@ -35,7 +35,7 @@ body {
 
 .display {
   background-color: ${props =>
-    props.theme.mode === 'dark' ? '#111' : '#131a1a'};
+    props.theme.mode === 'dark' ? 'white' : '#131a1a'};
   color: ${props =>
     props.theme.mode === 'dark' ? '#EEE' : '#111'};
 }
@@ -43,6 +43,34 @@ body {
 .displayDigit {
   color: ${props =>
     props.theme.mode === 'dark' ? 'red' : '#EEE'};
+}
+
+.number-button {
+  background-color: ${props =>
+    props.theme.mode === 'dark' ? '#111' : '#1111b1'};
+  color: ${props =>
+    props.theme.mode === 'dark' ? 'red' : 'white'};
+}
+
+.special-button {
+  background-color: ${props =>
+    props.theme.mode === 'dark' ? '#111' : '#0070bbb6'};
+  color: ${props =>
+    props.theme.mode === 'dark' ? 'red' : 'white'};
+}
+
+.operator-button {
+  background-color: ${props =>
+    props.theme.mode === 'dark' ? '#111' : '#3195f3'};
+  color: ${props =>
+    props.theme.mode === 'dark' ? 'red' : 'white'};
+}
+
+.zero-button {
+  background-color: ${props =>
+    props.theme.mode === 'dark' ? '#111' : '#1111b1'};
+  color: ${props =>
+    props.theme.mode === 'dark' ? 'red' : 'white'};
 }`;
 
 function App() {
