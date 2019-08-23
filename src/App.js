@@ -129,11 +129,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
       <GlobalStyle />
-      <div className="fullApp">
-        <button className='nightBtn' onClick={() => setTheme(theme.mode === 'dark' ? {mode: 'light'} : {mode: 'dark'})}>Knight Mode</button>
         <div className="back-container">
           <div className="main-container">
-            <h1 className='kit'>
+            <h1 className='kit' onClick={() => setTheme(theme.mode === 'dark' ? {mode: 'light'} : {mode: 'dark'})}>
               <span>T</span>
               <span>H</span>
               <span>E</span> 
@@ -155,7 +153,6 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
     </>
     </ThemeProvider>
   );
