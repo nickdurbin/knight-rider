@@ -33,6 +33,16 @@ body {
     props.theme.mode === 'dark' ? '#EEE' : 'gray'};
 }
 
+.logo {
+  display: ${props =>
+    props.theme.mode === 'dark' ? 'none' : ''};
+}
+
+.kit {
+  display: ${props =>
+    props.theme.mode === 'dark' ? 'block' : ''};
+}
+
 .display {
   background-color: ${props =>
     props.theme.mode === 'dark' ? 'white' : '#131a1a'};
@@ -61,7 +71,7 @@ body {
 
 .operator-button {
   background-color: ${props =>
-    props.theme.mode === 'dark' ? 'white' : '#3195f3'};
+    props.theme.mode === 'dark' ? '#111' : '#3195f3'};
   color: ${props =>
     props.theme.mode === 'dark' ? 'red' : 'white'};
 }
@@ -110,6 +120,15 @@ function App() {
       <button className='nightBtn' onClick={() => setTheme(theme.mode === 'dark' ? {mode: 'light'} : {mode: 'dark'})}>Knight Mode</button>
       <div className="back-container">
         <div className="main-container">
+          <h1 className='kit'>
+            <span>T</span>
+            <span>H</span>
+            <span>E</span> 
+            <span>H</span>
+            <span>O</span>
+            <span>F</span>
+            <span>F</span>
+          </h1>
           <Logo />
           <Display total={display}/>
           <div className='buttons-container'>

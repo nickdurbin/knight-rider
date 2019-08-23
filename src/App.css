@@ -14,6 +14,65 @@
   border-radius: 20px;
 }
 
+.kit {
+  display: none;
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 800;
+  color: #181717;
+  letter-spacing: 1rem;
+  margin: 25px auto;
+}
+
+.kit span {
+  animation: animate 2s linear infinite;
+}
+
+.kit span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.kit span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.kit span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.kit span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.kit span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.kit span:nth-child(6) {
+  animation-delay: 1.0s;
+}
+
+.kit span:nth-child(7) {
+  animation-delay: 1.2s;
+}
+
+@keyframes animate {
+  0%, 80% {
+    color: #181717;
+    text-shadow: none;
+  }
+  100% {
+    color: red;
+    text-shadow: 0 0 10px red;
+    text-shadow: 0 0 20px red;
+    text-shadow: 0 0 40px red;
+    text-shadow: 0 0 80px red;
+    text-shadow: 0 0 120px red;
+    text-shadow: 0 0 160px red;
+    text-shadow: 0 0 200px red;
+  }
+}
+
 .logo-container {
   width: 100%;
   height: 15%;
@@ -63,6 +122,19 @@
   font-size: 2.2rem;
   font-weight: 600;
   cursor: pointer;
+  animation: glow 2s infinite;
+}
+
+.special-button:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.special-button:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.special-button:nth-child(3) {
+  animation-delay: 1.2s;
 }
 
 .special-button:active {
