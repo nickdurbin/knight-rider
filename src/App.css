@@ -25,7 +25,7 @@
 }
 
 .kit span {
-  animation: animate 2s linear infinite;
+  animation: animate 3s linear infinite;
 }
 
 .kit span:nth-child(1) {
@@ -82,6 +82,7 @@
 .logo {
   width: 30%;
   padding: 2.8rem 2rem 1rem;
+  cursor: pointer;
 }
 
 .display {
@@ -93,6 +94,8 @@
   background-color: #131a1a;
   margin: 0 auto;
   border-radius: 40px;
+  border: 4px red solid;
+  animation: slowglow 1s ease-in-out infinite alternate;
 }
 
 .displayDigit {
@@ -100,6 +103,16 @@
   color: white;
   font-size: 2.7rem;
   font-weight: 600;
+  animation: lightglow 1s infinite ease-in alternate;
+}
+
+@keyframes lightglow {
+  from {
+    text-shadow: 0 0 1px red, 0 0 2px red, 0 0 5px #fd0303;
+  }
+  to {
+    text-shadow: 0 0 2px red, 0 0 4px #ff918d, 0 0 5px #ff918d, 0 0 1px;
+  }
 }
 
 .specials-container {
@@ -122,19 +135,25 @@
   font-size: 2.2rem;
   font-weight: 600;
   cursor: pointer;
-  animation: glow 2s infinite;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 
-.special-button:nth-child(1) {
-  animation-delay: 0s;
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px #fd0303, 0 0 40px #fd0303, 0 0 50px #fd0303, 0 0 60px #fd0303, 0 0 70px #fd0303;
+  }
+  to {
+    text-shadow: 0 0 20px red, 0 0 30px #ff918d, 0 0 40px #ff918d, 0 0 50px;
+  }
 }
 
-.special-button:nth-child(2) {
-  animation-delay: 0.8s;
-}
-
-.special-button:nth-child(3) {
-  animation-delay: 1.2s;
+@keyframes slowglow {
+  from {
+    box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px #fd0303, 0 0 40px #fd0303, 0 0 50px #fd0303;
+  }
+  to {
+    box-shadow: 0 0 20px red, 0 0 30px #fd453f, 0 0 40px #fd3f39, 0 0 50px #fd2a23;
+  }
 }
 
 .special-button:active {
@@ -162,6 +181,7 @@
   font-size: 2.2rem;
   font-weight: 600;
   cursor: pointer;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 
 .number-button:active {
@@ -207,6 +227,7 @@
   font-size: 2.2rem;
   font-weight: 600;
   cursor: pointer;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 
 .operator-button:active {
@@ -217,6 +238,7 @@
   width: 225px;
   border-radius: 40px;
   cursor: pointer;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 
 .zero-button:active {
@@ -226,9 +248,20 @@
 .nightBtn {
   width: 200px;
   height: 100px;
+  margin: 0 0px 0 200px;
   border-radius: 40px;
   background-color: white;
   color: red;
   font-size: 1.6rem;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.fullApp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }

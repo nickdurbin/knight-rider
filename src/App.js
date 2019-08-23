@@ -48,6 +48,10 @@ body {
     props.theme.mode === 'dark' ? 'white' : '#131a1a'};
   color: ${props =>
     props.theme.mode === 'dark' ? '#EEE' : '#111'};
+  border: ${props =>
+    props.theme.mode === 'dark' ? '' : 'none'};
+  animation: ${props =>
+    props.theme.mode === 'dark' ? '' : 'none'};
 }
 
 .displayDigit {
@@ -60,6 +64,8 @@ body {
     props.theme.mode === 'dark' ? '#111' : '#1111b1'};
   color: ${props =>
     props.theme.mode === 'dark' ? 'red' : 'white'};
+  animation: ${props =>
+    props.theme.mode === 'dark' ? '' : 'none'};
 }
 
 .special-button {
@@ -67,6 +73,8 @@ body {
     props.theme.mode === 'dark' ? '#111' : '#0070bbb6'};
   color: ${props =>
     props.theme.mode === 'dark' ? 'red' : 'white'};
+  animation: ${props =>
+    props.theme.mode === 'dark' ? '' : 'none'};
 }
 
 .operator-button {
@@ -74,6 +82,8 @@ body {
     props.theme.mode === 'dark' ? '#111' : '#3195f3'};
   color: ${props =>
     props.theme.mode === 'dark' ? 'red' : 'white'};
+  animation: ${props =>
+    props.theme.mode === 'dark' ? '' : 'none'};
 }
 
 .zero-button {
@@ -81,6 +91,8 @@ body {
     props.theme.mode === 'dark' ? 'white' : '#1111b1'};
   color: ${props =>
     props.theme.mode === 'dark' ? 'red' : 'white'};
+  animation: ${props =>
+    props.theme.mode === 'dark' ? '' : 'none'};
 }`;
 
 function App() {
@@ -117,27 +129,29 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
       <GlobalStyle />
-      <button className='nightBtn' onClick={() => setTheme(theme.mode === 'dark' ? {mode: 'light'} : {mode: 'dark'})}>Knight Mode</button>
-      <div className="back-container">
-        <div className="main-container">
-          <h1 className='kit'>
-            <span>T</span>
-            <span>H</span>
-            <span>E</span> 
-            <span>H</span>
-            <span>O</span>
-            <span>F</span>
-            <span>F</span>
-          </h1>
-          <Logo />
-          <Display total={display}/>
-          <div className='buttons-container'>
-            <div className="special-number">
-              <Specials handleSpecialButton={handleSpecialButton} />
-              <Numbers handleClick={handleClick} />
-            </div>
-            <div className="operators">
-              <Operators handleCalculation={handleCalculation} handleOperator={handleOperator}/>
+      <div className="fullApp">
+        <button className='nightBtn' onClick={() => setTheme(theme.mode === 'dark' ? {mode: 'light'} : {mode: 'dark'})}>Knight Mode</button>
+        <div className="back-container">
+          <div className="main-container">
+            <h1 className='kit'>
+              <span>T</span>
+              <span>H</span>
+              <span>E</span> 
+              <span>H</span>
+              <span>O</span>
+              <span>F</span>
+              <span>F</span>
+            </h1>
+            <Logo setTheme={setTheme} theme={theme}/>
+            <Display total={display}/>
+            <div className='buttons-container'>
+              <div className="special-number">
+                <Specials handleSpecialButton={handleSpecialButton} />
+                <Numbers handleClick={handleClick} />
+              </div>
+              <div className="operators">
+                <Operators handleCalculation={handleCalculation} handleOperator={handleOperator}/>
+              </div>
             </div>
           </div>
         </div>
