@@ -10,26 +10,26 @@ function App() {
 
   const [display, setDisplay] = useState('');
 
-  const handleClick = (props) => {
-    return props.setDisplay(props.display + props.symbol);
+  const handleClick = (symbol) => {
+    return setDisplay(display + symbol);
   }
 
-  const handleSpecialButton = (props) => {
-    if (props.symbol === 'C') {
-      props.setDisplay('');
-    } else if (props.symbol === '%') {
-      props.setDisplay(props.display / 100);
-    } else if (props.symbol === '+/-'){
-      props.setDisplay(props.display * -1);
+  const handleSpecialButton = (symbol) => {
+    if (symbol === 'C') {
+      setDisplay('');
+    } else if (symbol === '%') {
+      setDisplay(display / 100);
+    } else if (symbol === '+/-'){
+      setDisplay(display * -1);
     }
   }
 
-  const handleOperator = (props) => {
-    if (props.symbol === '+' || '-' || 'x' || '/' ) return props.setDisplay(props.display + props.value);
+  const handleOperator = (symbol, value) => {
+    if (symbol === '+' || '-' || 'x' || '/' ) return setDisplay(display + value);
   }
 
-  const handleCalculation = (props) => {
-    if (props.value === '=') return setDisplay(eval(props.display));
+  const handleCalculation = (value) => {
+    if (value === '=') return setDisplay(eval(display));
   }
 
   // Require and style the background image
